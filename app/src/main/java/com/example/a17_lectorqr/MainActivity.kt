@@ -19,7 +19,10 @@ class MainActivity : AppCompatActivity() {
         if (intentResult != null) {
             if (result.resultCode == Activity.RESULT_OK &&intentResult.contents == null) {
                 Toast.makeText(this, "You cancelled the scanning", Toast.LENGTH_LONG).show()
-            } else {
+            } else if(intentResult.contents.isNullOrEmpty()) {
+                Toast.makeText(this, "contenido vacio", Toast.LENGTH_LONG).show()
+            }
+                else{
                 Toast.makeText(this, intentResult.contents, Toast.LENGTH_LONG).show()
             }
         }
